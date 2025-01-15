@@ -1,3 +1,5 @@
+This repository is a modified version of the [original from retextjs](https://github.com/davidhund/retext-assuming). It fixes the issue `file.warn() not a function` by calling `file.message()` as mentioned [here](https://github.com/davidhund/retext-assuming/pull/17). Please don't submit issues and PRs and all that stuff here! Not maintained!
+
 # retext-assuming
 
 [![npm version](https://img.shields.io/npm/v/retext-assuming.svg)](https://npmjs.com/package/retext-assuming)
@@ -9,18 +11,17 @@ Check for unhelpful ‘assuming’ phrases such as 'just', 'simply' or 'obviousl
 Using these phrases in documentation is unhelpful: “simple” is relative to a users’ knowledge and experience. Often it is fine to leave the phrase out completely:
 
 Avoid:
+
 > “Simply run the tests. Just type `npm test`…”
 
 But use:
 
 > “To run the tests type `npm test`…”
 
-
 ## Credits
 
 This plugin is based on the excellent [**retext**][retext] (plugins) by [Wooorm](https://twitter.com/wooorm/).
 Not much of this code is original and it probably could be much improved. PR's welcome 🚀
-
 
 ## Installation
 
@@ -44,14 +45,14 @@ Actually, it's quite easy to use.
 And our script, `example.js`, looks as follows:
 
 ```javascript
-var vfile = require('to-vfile');
-var report = require('vfile-reporter');
-var retext = require('retext');
-var dontAssume = require('retext-assuming');
+var vfile = require("to-vfile");
+var report = require("vfile-reporter");
+var retext = require("retext");
+var dontAssume = require("retext-assuming");
 
 retext()
   .use(dontAssume)
-  .process(vfile.readSync('example.txt'), function (err, file) {
+  .process(vfile.readSync("example.txt"), function (err, file) {
     console.error(report(err || file));
   });
 ```
@@ -87,18 +88,18 @@ Checks for unhelpful phrases such as “just”, “simply” or “obviously”
 
 ###### `options.verbose`
 
-`Boolean` — If `true` includes matches that are _probably fine_ (“You should **not** *simply* assume”)
+`Boolean` — If `true` includes matches that are _probably fine_ (“You should **not** _simply_ assume”)
 
 ## Related
 
-*   [`retext-equality`](https://github.com/wooorm/retext-equality)
-    — Check possible insensitive, inconsiderate language
-*   [`retext-intensify`](https://github.com/wooorm/retext-intensify)
-    — Check for weak and mitigating wording
-*   [`retext-passive`](https://github.com/wooorm/retext-passive)
-    — Check passive voice
-*   [`retext-profanities`](https://github.com/wooorm/retext-profanities)
-    — Check profane and vulgar wording
+- [`retext-equality`](https://github.com/wooorm/retext-equality)
+  — Check possible insensitive, inconsiderate language
+- [`retext-intensify`](https://github.com/wooorm/retext-intensify)
+  — Check for weak and mitigating wording
+- [`retext-passive`](https://github.com/wooorm/retext-passive)
+  — Check passive voice
+- [`retext-profanities`](https://github.com/wooorm/retext-profanities)
+  — Check profane and vulgar wording
 
 ## License
 
@@ -107,9 +108,6 @@ Checks for unhelpful phrases such as “just”, “simply” or “obviously”
 <!-- Definitions -->
 
 [npm]: https://docs.npmjs.com/cli/install
-
 [license]: LICENSE
-
 [author]: https://valuedstandards.com
-
 [retext]: https://github.com/wooorm/retext
